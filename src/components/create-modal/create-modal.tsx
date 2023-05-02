@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useFoodDataMutate } from "../../hooks/useFoodDataMutate";
-import { FoodData } from "../../interface/foodData";
+import { FoodData } from "../../interface/FoodData";
 import { FaPlus } from "react-icons/fa";
 
 import './modal.css'
@@ -9,7 +9,7 @@ import './modal.css'
 interface InputProps {
     label: string,
     value: string | number,
-    updateValue(value: any ): void
+    updateValue(value: any): void
 }
 
 interface ModalProps {
@@ -19,18 +19,18 @@ interface ModalProps {
 const Input = ({ label, value, updateValue }: InputProps) => {
     return (
         <>
-            <label>{label}</label>
-            <input value={value} onChange={e => updateValue(e.target.value)}></input>
+            <label className="label">{label}</label>
+            <input className="input" value={value} onChange={e => updateValue(e.target.value)}></input>
         </>
     )
 }
 
-export function CreateModal({ closeModal } : ModalProps) {
+export function CreateModal({ closeModal }: ModalProps) {
 
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [price, setPrice] = useState(0);
-    const { mutate, isSuccess, isLoading } = useFoodDataMutate();
+    const { mutate, isSuccess } = useFoodDataMutate();
 
     const submit = () => {
         const foodData: FoodData = {
@@ -43,7 +43,7 @@ export function CreateModal({ closeModal } : ModalProps) {
     }
 
     useEffect(() => {
-        if(!isSuccess) return;
+        if (!isSuccess) return;
 
         closeModal()
     }, [isSuccess]);
@@ -51,20 +51,28 @@ export function CreateModal({ closeModal } : ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <button onClick={closeModal} className="btn-close">
-                    <div className="icon-remove">
-                        <FaPlus/>
+                <div className="header">
+                    <div className="title">
+                        <h2>Cadastro de item:</h2>
                     </div>
-                </button>
-                <h2>Cadastro Novo Item:</h2>
+                    <div className="btn-cancel">
+                        <button onClick={closeModal} className="btn-close" >
+                            <div className="icon-remove">
+                                <FaPlus />
+                            </div>
+                        </button>
+                    </div>
+                </div>
                 <form className="input-container">
-                    <Input label="name" value={name} updateValue={setName}/>
-                    <Input label="price" value={price} updateValue={setPrice}/>
-                    <Input label="image" value={image} updateValue={setImage}/>
+                    <Input label="Nome:" value={name} updateValue={setName} />
+                    <Input label="Preço:" value={price} updateValue={setPrice} />
+                    <Input label="Imagem:" value={image} updateValue={setImage} />
                 </form>
-                <button onClick={submit} className="btn-secondary">
-                    {isLoading ? 'Postando...' : 'Postar'}
-                </button>
+                <div className="btn-post">
+                    <button onClick={submit} className="btn-secondary">
+                        POSTAR
+                    </button>
+                </div>
             </div>
         </div>
     );

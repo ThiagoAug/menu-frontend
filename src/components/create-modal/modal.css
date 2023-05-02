@@ -1,7 +1,8 @@
+@import url('https://fonts.cdnfonts.com/css/lucida-handwriting-std');
+
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,0.4);
     overflow: hidden;
     height: 100vh;
     width: 100vw;
@@ -14,14 +15,15 @@
 }
 
 .modal-overlay .modal-body {
-    background-color: white;
+    background-color: #eead2d;
     padding: 24px;
-    height: 60%;
     width: 60%;
+
     border-radius: 24px;
+    border-style: solid;
+    border-color: #cd6b03;
 
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -54,25 +56,74 @@
 }
 
 .modal-overlay .modal-body .btn-secondary {
+    background-color: #984700;
     position: initial;
-    width: 100%;
+    width: 10%;
     margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 80%;
 }
 
-.modal-overlay .modal-body .btn-close {
+.modal-overlay .modal-body .header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.modal-overlay .modal-body .header .title {
+    display: flex;
+    width: 60%;
+    justify-content: left;
+    align-items: center;
+    font-family:  'Lucida Handwriting Std', sans-serif;
+}
+
+.modal-overlay .modal-body .header .btn-cancel {
+    display: flex;
+    width: 40%;
+    justify-content: right;
+    align-items: center;
+}
+
+.modal-overlay .modal-body .header .btn-cancel .btn-close {
     border: none;
     position: initial;
     padding: 0%;
+    width: 0%;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
-.icon-remove{
+.modal-overlay .modal-body .header .btn-cancel .btn-close .icon-remove{
     color: red;
     rotate: 45deg;
-    padding: 0%;
+}
+
+.modal-overlay .modal-body .header .btn-cancel .btn-close .icon-remove:hover {
+    color: rgb(185, 0, 0);
+}
+
+.modal-overlay .modal-body .btn-post {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    align-items: center;
 }
 
 .modal-overlay .modal-body .btn-secondary:hover {
-    background-color: #3a44f8;
-    transform: scale(1);
+    background-color: #823e02;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
 }
 
+.input {
+    background-color: #c28711;
+}
+
+.label {
+    font-family:  'Lucida Handwriting Std', sans-serif;
+}
