@@ -51,7 +51,7 @@ export function CreateModal({ closeModal }: ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <div className="header">
+                <div className="modal-header">
                     <div className="title">
                         <h2>Cadastro de item:</h2>
                     </div>
