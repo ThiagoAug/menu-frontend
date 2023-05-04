@@ -1,16 +1,5 @@
-.container {
-    background-color: black;
+.side-container{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw
-}
-  
-.card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
 }
   
 .container button {
@@ -20,8 +9,4 @@
     bottom: 16px;
     right: 24px;
     transition: all 0.1s linear 0.1s;
-}
-  
-.btn-new {
-    background-color: #0275d8;
 }
